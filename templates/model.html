@@ -1,0 +1,47 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+{% include "button.html" %}
+<div class="header">
+<h1>Cars Catalog</h1>
+</div>
+<div class="pane">
+<h1>{{brand.name}}</h1>
+{% if num !=[] %}
+<a href="{{url_for('newModel', brand_id=brand.id)}}">Create New Model</a>
+<!--Message flashing-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+<strong>{{message}}</strong>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<div>
+{% for model in models %}
+
+<p>{{model.name}}</p>
+
+<p>{{model.description}}</p>
+
+<a href="{{url_for('editModel',brand_id=brand.id, model_id=model.id)}}">Edit</a>
+
+<a href="{{url_for('deleteModel',brand_id=brand.id, model_id=model.id)}}">Delete</a>
+
+{% endfor %}
+</div>
+{% else %}
+<p>You currently have no models.</p>
+<a href="{{url_for('newModel', brand_id=brand.id)}}">Create New Model</a>
+{% endif %}
+
+<a href="{{url_for('showBrand', brand_id=brand.id)}}">Cancel</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+{% include "button.html" %}
+<div class="header">
+<h1>Cars Catalog</h1>
+</div>
+<div class="pane">
+<h1>New Model</h1>
+<!--Message flashing-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+<strong>{{message}}</strong>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<form action="#", method='POST'>
+
+<p>Name:</p>
+<input type='text' size='30' name='name' required>
+<p>Description:</p>
+<input type='text' size='30' name="description" required>
+</br>
+
+<input type='submit' value='Create'>
+</form>
+<a href="{{url_for('showModel', brand_id=brand_id)}}">Cancel</a>
+</div>
+</body>
+</html>

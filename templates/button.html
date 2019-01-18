@@ -1,0 +1,22 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"
+</head>
+<body>
+<div>
+  {% if 'username' not in session %}
+     <a href="{{url_for('showLogin')}}" class="navbar-text navbar-margin-btn">
+       <button type="button" class="button" style="float: right;">
+       Log In
+       </button>
+     </a>
+     {% else %}
+     <a href="{{url_for('gdisconnect')}}" class="navbar-text navbar-margin-btn">
+       <button type="button" class="button" style="float: right;">
+       Logout
+       </button>
+     </a>
+     {% endif %}
+</div>
+</body>
+</html>

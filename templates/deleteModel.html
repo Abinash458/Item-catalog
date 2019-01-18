@@ -1,0 +1,33 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+{% include "button.html" %}
+<div class="header">
+<h1>Cars Catalog</h1>
+</div>
+<div class="pane">
+<h1>Are you sure you want to delete {{models.name}}</h1>
+<!--Message flashing-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+<strong>{{message}}</strong>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<form action="{{url_for('deleteModel', brand_id=models.brand_id, model_id=models.id)}}", method = 'POST'>
+
+<input type='submit' value='Delete'>
+
+</form>
+
+<a href="{{url_for('showModel', brand_id = models.brand_id)}}">Cancel</a>
+
+</div>
+</body>
+</html>
