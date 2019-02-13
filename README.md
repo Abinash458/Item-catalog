@@ -1,14 +1,14 @@
-Cars-Catalog
+# Cars-Catalog
 
 Create a Car Brand and Model app where users add, edit, and delete Cars Brand and Cars Models.
 
-Prerequirements
+# Prerequirements
 
 1. Python 2.7
 2. Vagrant
 3. VirtualBox
 
-How to Run
+# How to Run
 
 1. Install VirtualBox and Vagrant.
 2. Unzip and place the catalog folder in your Vagrant directory.
@@ -26,7 +26,7 @@ How to Run
 	$ python application.py
 9. Open the browser and go to http://localhost:5000
 
-For JSON endpoints
+# For JSON endpoints
 
 1. Return JSON all Brands
 	/brand/JSON/
